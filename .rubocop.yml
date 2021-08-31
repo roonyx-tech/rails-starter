@@ -1,0 +1,64 @@
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  IgnoredPatterns: ['(\A|\s)#']
+
+Metrics/AbcSize:
+  Max: 35
+  Exclude:
+    - 'lib/assets/ts_fixtures.rb'
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/**/*'
+    - 'spec/**/*'
+    - 'config/environments/**/*'
+    - 'config/routes.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'spec/factories/**/*'
+
+Metrics/ParameterLists:
+  Max: 6
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'vendor/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'lib/generators/templates/**/*'

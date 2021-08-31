@@ -1,0 +1,40 @@
+version: '3.5'
+
+x-application: &application
+  stdin_open: true
+  tty: true
+  build: ./
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_HOST: db
+    REDIS_URL_SIDEKIQ: 'redis://redis:6379/1'
+  depends_on:
+    - db
+    - redis
+  volumes:
+    - ./data/rails_storage:/app/storage
+    - ./:/app
+
+services:
+  db:
+    image: postgres:9.6
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+  redis:
+    image: redis:6.0-alpine
+    command: redis-server
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - 6379:6379
+  rails:
+    <<: *application
+    command: ["bundle", "exec", "puma -C config/puma.rb"]
+    ports:
+      - 3000:3000
+  sidekiq:
+    <<: *application
+    command: ["bundle", "exec", "sidekiq -C config/sidekiq.yml"]
