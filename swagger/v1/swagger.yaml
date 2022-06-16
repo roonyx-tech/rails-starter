@@ -1,0 +1,30 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/ping":
+    get:
+      summary: ping application
+      tags:
+      - Blogs
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                answer: PONG My friend
+servers:
+- description: Local
+  url: http://0.0.0.0:3000
+- description: Staging
+  url: http://staging.com
+- description: Production
+  url: http://production.com

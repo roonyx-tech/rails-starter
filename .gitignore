@@ -6,35 +6,38 @@
 
 # Ignore bundler config.
 /.bundle
-vendor/bundle/*
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
-/db/*.sqlite3-journal
+/db/*.sqlite3-*
 
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/data/*
 !/log/.keep
 !/tmp/.keep
-!/data/.keep
 
-# Ignore uploaded files in development
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-coverage
-/node_modules
-/yarn-error.log
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
 
 /public/assets
-.byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/public/doc/api
-# Editors
-.idea
-.DS_Store
-.rakeTasks
-.ruby-gemset
 
+# Ignore coverage
+/covarage/*
+# Ignore docker data
+/data/
+/tmp/
+/coverage/
+/.idea/

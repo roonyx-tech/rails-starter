@@ -17,14 +17,14 @@ x-application: &application
 
 services:
   db:
-    image: postgres:9.6
+    image: postgres:14
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: "db"
       POSTGRES_HOST_AUTH_METHOD: "trust"
   redis:
-    image: redis:6.0-alpine
+    image: redis:7.0.2-alpine
     command: redis-server
     volumes:
       - ./data/redis:/data

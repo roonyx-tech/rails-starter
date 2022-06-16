@@ -42,7 +42,7 @@ Rails Starter Kit is ready to start with docker-compose.
 - [byebug](https://github.com/deivid-rodriguez/byebug) simple to use and feature rich debugger for Ruby
 - [bullet](https://github.com/flyerhzm/bullet) for detect N+1 queries
 - [rspec](https://github.com/rspec/rspec-rails) testing framework
-- [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) for generate api docs
+- [rswag](https://github.com/rswag/rswag) for generate api docs
 - [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) containing strategies for cleaning your database
 - [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) provides RSpec-compatible one-liners to test common Rails functionality
 - [simplecov](https://github.com/simplecov-ruby/simplecov) is a code coverage analysis tool for Ruby
@@ -50,6 +50,10 @@ Rails Starter Kit is ready to start with docker-compose.
 - [annotate](https://github.com/ctran/annotate_models) for schema comment
 
 ## Getting started
+
+Requirements:
+
+- Ruby >= 3.0.2
 
 ### Init
 
@@ -108,6 +112,12 @@ docker-compose run --rm rails bundle exec <your_custom_command>
 ```
 
 ## Tests, Lints, Docs
+
+### Ci task
+- To run the CI task run:
+```
+rake ci
+```
 
 ### Running tests
 
@@ -186,5 +196,3 @@ docker attach [rails_container_id]
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/roonyx-tech/rails-starter/blob/master/LICENSE)
-
-
